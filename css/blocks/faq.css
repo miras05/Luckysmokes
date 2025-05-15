@@ -1,0 +1,6 @@
+#faq-item {
+  border: 1px dashed;
+  border-bottom: none;
+  padding: 20px;
+  cursor: pointer;
+}

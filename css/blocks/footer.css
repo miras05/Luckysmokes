@@ -1,0 +1,12 @@
+footer {
+  background-image: url("/background\ images/bgfooter.jpg");
+  color: white;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 30px;
+  background-size: cover;
+}
+footer a {
+  color: white;
+}

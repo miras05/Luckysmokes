@@ -1,0 +1,28 @@
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #000;
+  color: #fff;
+  padding: 20px;
+}
+
+#logo {
+  border: none;
+  border-radius: 3px;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 7px;
+}
+
+#cart {
+  background-color: #ffcc00;
+  color: #000;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-weight: 900;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
