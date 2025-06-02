@@ -17,8 +17,8 @@
       href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;700&display=swap"
       rel="stylesheet"
     />
-    
-    <link rel="stylesheet" href="css/style.css" />
+
+    <link rel="stylesheet" href="style.css" />
   </head>
 
   <body class="fade-in">
@@ -30,7 +30,7 @@
           LUCKYSMOKES
         </button>
 
-        <button id="cart">🛒 Cart</button>
+        <button id="cart" onclick="location.href='cart.html'">🛒 Cart</button>
       </header>
 
       <div class="warning-banner">
@@ -40,27 +40,44 @@
         </div>
       </div>
 
+      <div class="burger" id="burger"></div>
+      <nav class="side-menu" id="sideMenu">
+        <a href="index.html">Main Page</a>
+        <a href="disposable.html">Disposable Vapes</a>
+        <a href="thc.html">THC</a>
+        <a href="zero-nicotine.html">Zero Nicotine</a>
+        <a href="hookah.html">Hookah</a>
+        <a href="kratom.html">Kratom</a>
+        <a href="hookah.html">Hookah</a>
+        <a href="mushrooms.html">Mushrooms</a>
+      </nav>
+
       <h1>Shop By Categories</h1>
 
       <section class="category-section outlined-text">
         <div class="category-card" onclick="location.href='disposable.html'">
-          <img src="/background images/dispbg.jpg" alt="" />
+          <img src="background images/dispbg.jpg" alt="" />
           <span class="category-card_text">DISPOSABLE VAPES</span>
         </div>
-        <div class="category-card">
-          <img src="./background-images/dispbg.jpg" alt="" />
+        <div class="category-card" onclick="location.href='thc.html'">
+          <img src="background images/thcbg.webp" alt="" />
+          <span class="category-card_text">THC</span>
         </div>
-        <div class="category-card">
-          <img src="./background-images/dispbg.jpg" alt="" />
+        <div class="category-card" onclick="location.href='zero-nicotine.html'">
+          <img src="background images/zerobg.webp" alt="" />
+          <span class="category-card_text">ZERO NICOTINE</span>
         </div>
-        <div class="category-card">
-          <img src="./background-images/dispbg.jpg" alt="" />
+        <div class="category-card" onclick="location.href='hookah.html'">
+          <img src="background images/hookahbg.webp" alt="" />
+          <span class="category-card_text">HOOKAH</span>
         </div>
-        <div class="category-card">
-          <img src="./background-images/dispbg.jpg" alt="" />
+        <div class="category-card" onclick="location.href='kratom.html'">
+          <img src="background images/opiabg.jpg" alt="" />
+          <span class="category-card_text">KRATOM</span>
         </div>
-        <div class="category-card">
-          <img src="./background-images/dispbg.jpg" alt="" />
+        <div class="category-card" onclick="location.href='mushrooms.html'">
+          <img src="background images/mushroomsbg.webp" alt="" />
+          <span class="category-card_text">MUSHROOMS</span>
         </div>
       </section>
 

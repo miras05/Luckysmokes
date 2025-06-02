@@ -3,4 +3,8 @@
   border-bottom: none;
   padding: 20px;
   cursor: pointer;
+
+}
+#faq-item:last-child{
+  border-bottom: 1px dashed;
 }

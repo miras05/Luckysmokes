@@ -6,6 +6,7 @@ footer {
   justify-content: space-between;
   gap: 30px;
   background-size: cover;
+  padding: 15px;
 }
 footer a {
   color: white;

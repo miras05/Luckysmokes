@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <title>Luckysmokes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Arsenal+SC:ital,wght@0,400;0,700;1,400;1,700&family=Exo+2:ital,wght@0,100..900;1,100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Orbitron:wght@400..900&family=Press+Start+2P&family=Saira+Stencil+One&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/blocks/cart.css">
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body class="fade-in">
+    <div class="container">
+      <header>
+        <div id="burger">MENU</div>
+        <button onclick="location.href='index.html'" id="logo">
+          LUCKYSMOKES
+        </button>
+        <div></div>
+      </header>
+      <div class="warning-banner">
+        <div class="banner-text">
+          Some of our products contain nicotine. Nicotine is addictive. Only for
+          persons 21+
+        </div>
+      </div>
+      <div class="burger" id="burger"></div>
+      <nav class="side-menu" id="sideMenu">
+        <a href="index.html">Main Page</a>
+        <a href="disposable.html">Disposable Vapes</a>
+        <a href="thc.html">THC</a>
+        <a href="zero-nicotine.html">Zero Nicotine</a>
+        <a href="hookah.html">Hookah</a>
+        <a href="kratom.html">Kratom</a>
+        <a href="hookah.html">Hookah</a>
+        <a href="mushrooms.html">Mushrooms</a>
+      </nav>
+      <h1>Cart</h1>
+<div style="padding: 20px;">
+  <button onclick="history.back()" style="padding: 10px 15px; background: #ddd; border: none; border-radius: 5px; cursor: pointer;">← Back</button>
+</div>
+
+<div id="cart-items" class="cart-container" style="padding: 20px;"></div>
+
+<div id="cart-total" style="padding: 20px; font-size: 18px;"></div>
+
+<button class="checkout-shipping">Proceed to Shipping</button>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

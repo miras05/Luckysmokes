@@ -1,0 +1,42 @@
+.burger {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 24px;
+  height: 18px;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+/* Меню */
+.side-menu {
+  position: fixed;
+  top: 0;
+  left: 0;                      /* ← меню выезжает слева */
+  width: 250px;
+  height: 100vh;
+  background-color: white;
+  transform: translateX(-100%); /* ← полностью скрыто за левым краем */
+  transition: transform 0.3s ease;
+  z-index: 999;
+}
+
+.side-menu.open {
+  transform: translateX(0);     /* ← выдвигаем влево */
+}
+/* Скрыть прокрутку */
+body.no-scroll {
+  overflow: hidden;
+}
+
+/* Меню-ссылки */
+.side-menu a {
+  text-decoration: none;
+  font-size: 18px;
+  color: #111;
+  transition: 0.3s;
+}
+
+.side-menu a:hover {
+  color: #ffcc00;
+}

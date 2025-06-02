@@ -14,9 +14,11 @@
   max-width: 450px;
   min-width: 280px;
   overflow: hidden;
-  box-shadow: inset 0 0 0 3px rgba(255, 204, 0, 0.7),
-    0 0 20px rgba(255, 204, 0, 0.3);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  border-radius: 12px;
 }
+
 
 .category-card_text{
   position: absolute;
@@ -32,8 +34,8 @@
 }
 
 .category-card:hover {
-  box-shadow: inset 0 0 0 3px rgba(255, 204, 0, 0.9),
-    0 0 25px rgba(255, 204, 0, 0.5);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  transform: translateY(-4px);
 }
 
 .category-card img {
