@@ -95,6 +95,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const cart = JSON.parse(localStorage.getItem("cart")) || [];
         items = cart.map(item => ({
           name: item.name,
+          flavor: item.flavor,
           price: item.price,
           quantity: item.quantity
         }));
@@ -115,7 +116,7 @@ document.addEventListener("DOMContentLoaded", function () {
           "Content-Type": "application/json",
           "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im10b3hvcHJsamNvb2F4cGtpZ2t2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDc5OTM0NjMsImV4cCI6MjA2MzU2OTQ2M30._K4PlESPqqo2h2svcTRrU0VMmZXFD_7t40lttCDJq2Y"
         },
-        body: JSON.stringify({ items })
+        body: JSON.stringify({ items, shippingData: data })
       });
 
       const checkout = await res.json();

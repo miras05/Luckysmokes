@@ -12,7 +12,9 @@
 
 @import "./css/blocks/product-window.css";
 
-@import "./css/blocks/burger.css"
+@import "./css/blocks/burger.css";
+
+@import "./css/blocks/cart.css";
 
 
 

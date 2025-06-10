@@ -125,54 +125,10 @@ productCard.forEach((card) => {
       }, 1000);
     });
 
-//     const buyNow = document.createElement("button");
-//     buyNow.type = "button";
-//     buyNow.textContent = "Buy now";
-//     Object.assign(buyNow.style, {
-//       padding: "15px",
-//       backgroundColor: "#000",
-//       color: "white",
-//       border: "none",
-//       borderRadius: "5px",
-//       fontWeight: "bold",
-//       fontSize: "17px",
-//     });
-//     const SUPABASE_JWT = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im10b3hvcHJsamNvb2F4cGtpZ2t2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDc5OTM0NjMsImV4cCI6MjA2MzU2OTQ2M30._K4PlESPqqo2h2svcTRrU0VMmZXFD_7t40lttCDJq2Y";
 
-// buyNow.addEventListener("click", async () => {
-//   const item = {
-//     name: productBrand.textContent.trim() + " " + productTitle.textContent.trim(),
-//     price: parseFloat(productPrice.textContent.replace(/[^0-9.]/g, "")),
-//     quantity: parseInt(input.value)
-//   };
-
-//   try {
-//     const res = await fetch("https://mtoxoprljcooaxpkigkv.supabase.co/functions/v1/create-checkout-session", {
-//       method: "POST",
-//       headers: {
-//         "Content-Type": "application/json",
-//         "Authorization": `Bearer ${SUPABASE_JWT}`
-//       },
-//       body: JSON.stringify({ items: [item] })
-//     });
-
-//     const data = await res.json();
-
-//     if (res.ok && data.url) {
-//       console.log("Redirecting to:", data.url);
-//       window.location.href = data.url;
-//     } else {
-//       alert("Ошибка создания сессии оплаты.");
-//       console.error(data);
-//     }
-//   } catch (err) {
-//     alert("Произошла ошибка при оплате.");
-//     console.error(err);
-//   }
-// });
 const proceedToShipping = document.createElement("button");
 proceedToShipping.type = "button";
-proceedToShipping.textContent = "Proceed to Shipping";
+proceedToShipping.textContent = "Buy";
 Object.assign(proceedToShipping.style, {
   padding: "15px",
   backgroundColor: "#4CAF50",
@@ -186,9 +142,9 @@ Object.assign(proceedToShipping.style, {
 
 proceedToShipping.addEventListener("click", () => {
   const item = {
-    name: productBrand.textContent.trim() + " " + productTitle.textContent.trim(),
+    name: productBrand.textContent.trim() + " " + productTitle.textContent.trim()+" "+select.value,
     price: parseFloat(productPrice.textContent.replace(/[^0-9.]/g, "")),
-    quantity: parseInt(input.value)
+    quantity: parseInt(input.value),
   };
 
   localStorage.setItem("modalItem", JSON.stringify(item));
@@ -226,6 +182,7 @@ function renderCart() {
     container.innerHTML = "<p>Your cart is empty.</p>";
     if (checkoutBtn) checkoutBtn.style.display = "none";
     if (summary) summary.style.display = "none";
+    if (document.querySelector(".checkout-shipping")) document.querySelector(".checkout-shipping").style.display="none";
     return;
   }
 
@@ -302,6 +259,7 @@ if (checkoutBtn) {
 
     const items = cart.map(item => ({
       name: item.name,
+      flavor: item.flavor,
       price: item.price,
       quantity: item.quantity
     }));

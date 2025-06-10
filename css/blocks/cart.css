@@ -48,3 +48,12 @@
   font-weight: bold;
 }
 
+.checkout-shipping{
+  padding: 10px;
+  border: none;
+  color: black;
+  background-color: #ffcc00;
+  border-radius: 5px;
+  margin-left: 20px;
+  margin-top: 20px;
+}

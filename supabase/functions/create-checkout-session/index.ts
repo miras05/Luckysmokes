@@ -6,7 +6,7 @@ const stripe = new Stripe(Deno.env.get("STRIPE_SECRET_KEY")!, {
 });
 
 serve(async (req) => {
-  // CORS preflight
+  // CORS
   if (req.method === "OPTIONS") {
     return new Response(null, {
       status: 204,
@@ -24,26 +24,47 @@ serve(async (req) => {
 
   try {
     const body = await req.json();
-    const { items } = body;
+    const { items, shippingData } = body;
 
     const line_items = items.map((item: any) => ({
-      price_data: {
-        currency: "usd",
-        product_data: { name: item.name },
-        unit_amount: Math.round(item.price * 100),
-      },
-      quantity: item.quantity,
-    }));
+  price_data: {
+    currency: "usd",
+    product_data: {
+      name: item.flavor ? `${item.name} — ${item.flavor}` : item.name,
+    },
+    unit_amount: Math.round(item.price * 100),
+  },
+  quantity: item.quantity,
+}));
 
+    // Добавим доставку как отдельный item, если есть
+    if (shippingData?.shippingCost) {
+      line_items.push({
+        price_data: {
+          currency: "usd",
+          product_data: {
+            name: "Shipping",
+          },
+          unit_amount: Math.round(shippingData.shippingCost * 100),
+        },
+        quantity: 1,
+      });
+    }
+
+    // Создание сессии Stripe
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ["card"],
       mode: "payment",
       line_items,
-      success_url: "http://127.0.0.1:5500/successhtml",
-      cancel_url: "http://127.0.0.1:5500/cancel.html",
+      success_url: 'https://luckysmokes.vercel.app/success.html',
+      cancel_url: 'https://luckysmokes.vercel.app',
       metadata: {
-    items: JSON.stringify(items),  // <--- добавляем твою корзину
-  },
+        customer_name: shippingData.name,
+        email: shippingData.email,
+        phone: shippingData.phone,
+        address: `${shippingData.address}, ${shippingData.city}, ${shippingData.state}, ${shippingData.zip}, ${shippingData.country}`,
+        items: JSON.stringify(items), // Вкусы, количество, названия и т.д.
+      },
     });
 
     return new Response(JSON.stringify({ url: session.url }), {
